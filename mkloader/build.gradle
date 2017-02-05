@@ -1,14 +1,15 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
   compileSdkVersion 25
   buildToolsVersion "25.0.1"
+
   defaultConfig {
-    applicationId "com.tuyenmonkey.sample"
     minSdkVersion 9
     targetSdkVersion 25
     versionCode 1
     versionName "1.0"
+
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
   buildTypes {
@@ -26,5 +27,4 @@ dependencies {
   })
   compile 'com.android.support:appcompat-v7:25.1.0'
   testCompile 'junit:junit:4.12'
-  compile project(':mkloader')
 }
