@@ -26,7 +26,19 @@ public class DotLoader {
       dotPainters[i] = new DotPainter();
       dotPainters[i].setAlpha(1);
       dotPainters[i].setColor(Color.parseColor("#0000ff"));
+      dotPainters[i].setRadius(30);
     }
+
+    float r = 150;
+    float d = (float)Math.pow(2, 1.0 / 2.0);
+    dotPainters[0].setCenter(r, 0);
+    dotPainters[1].setCenter(r + r / d, r - r / d);
+    dotPainters[2].setCenter(2 * r, r);
+    dotPainters[3].setCenter(r + r / d, r + r / d);
+    dotPainters[4].setCenter(r, 2 * r);
+    dotPainters[5].setCenter(r - r / d, r + r / d);
+    dotPainters[6].setCenter(0, r);
+    dotPainters[7].setCenter(r - r / d, r - r / d);
   }
 
   public void setDotRadius(int radius) {
