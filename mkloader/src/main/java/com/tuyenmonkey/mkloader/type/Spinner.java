@@ -1,5 +1,6 @@
 package com.tuyenmonkey.mkloader.type;
 
+import android.animation.ValueAnimator;
 import android.graphics.Canvas;
 import android.graphics.PointF;
 import com.tuyenmonkey.mkloader.exception.InvalidNumberOfCircleException;
@@ -53,6 +54,22 @@ public class Spinner extends LoaderView {
   }
 
   private void startAnimation() {
+    int[] delayTimes = new int[]{0, 120, 240, 360, 480, 600, 720, 840};
+    for (int i = 0; i < circles.length; i++) {
+      final int index = i;
+      ValueAnimator fadeAnimator = ValueAnimator.ofInt(126, 255, 126);
+      fadeAnimator.setRepeatCount(ValueAnimator.INFINITE);
+      fadeAnimator.setDuration(1000);
+      fadeAnimator.setStartDelay(delayTimes[i]);
+      fadeAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+        @Override public void onAnimationUpdate(ValueAnimator animation) {
+          int value = (int)animation.getAnimatedValue();
+          circles[index].setAlpha(value);
+          invalidateListener.triggerDraw();
+        }
+      });
 
+      fadeAnimator.start();
+    }
   }
 }
