@@ -1,7 +1,9 @@
 package com.tuyenmonkey.mkloader;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -10,7 +12,8 @@ import android.view.View;
  */
 
 public class MKLoader extends View {
-  private DotLoader dotLoader;
+  private ViewDrawer viewDrawer;
+  private int color;
 
   public MKLoader(Context context) {
     super(context);
@@ -28,44 +31,39 @@ public class MKLoader extends View {
   }
 
   private void initialize(Context context, AttributeSet attrs, int defStyleAttr) {
-    dotLoader = new DotLoader();
+    viewDrawer = new Spinner();
+    TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MKLoader);
+
+    this.color = typedArray.getColor(R.styleable.MKLoader_mk_color, Color.parseColor("#ffffff"));
+
+    viewDrawer.setColor(color);
+
+    typedArray.recycle();
   }
 
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-    //super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
-    int desiredSize = 100;
-    int width, height;
+    super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     int widthMode = MeasureSpec.getMode(widthMeasureSpec);
     int widthSize = MeasureSpec.getSize(widthMeasureSpec);
     int heightMode = MeasureSpec.getMode(heightMeasureSpec);
     int heightSize = MeasureSpec.getSize(heightMeasureSpec);
 
-    if (widthMode == MeasureSpec.EXACTLY) {
-      width = widthSize;
-    } else if (widthMode == MeasureSpec.AT_MOST) {
-      width = Math.min(widthSize, desiredSize);
-    } else {
-      width = desiredSize;
-    }
+    final int desiredSize = 300;
 
-    if (heightMode == MeasureSpec.EXACTLY) {
-      height = heightSize;
-    } else if (heightMode == MeasureSpec.AT_MOST) {
-      height = Math.min(heightSize, desiredSize);
-    } else {
-      height = desiredSize;
-    }
+    final int measuredWidth = resolveSize(desiredSize, widthMeasureSpec);
+    final int measuredHeight = resolveSize(desiredSize, heightMeasureSpec);
 
-    setMeasuredDimension(width, height);
+    int size = Math.min(widthSize, heightSize);
+    setMeasuredDimension(measuredWidth, measuredHeight);
   }
 
   @Override protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
     super.onLayout(changed, left, top, right, bottom);
+    viewDrawer.setSize(getWidth(), getHeight());
   }
 
   @Override protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
-    dotLoader.draw(canvas);
+    viewDrawer.draw(canvas);
   }
 }
