@@ -4,7 +4,6 @@ import android.graphics.Canvas;
 import android.graphics.PointF;
 import com.tuyenmonkey.mkloader.exception.InvalidNumberOfCircleException;
 import com.tuyenmonkey.mkloader.model.Circle;
-import com.tuyenmonkey.mkloader.type.LoaderView;
 
 /**
  * Created by Tuyen Nguyen on 2/10/17.
@@ -13,13 +12,15 @@ import com.tuyenmonkey.mkloader.type.LoaderView;
 public class Spinner extends LoaderView {
   private Circle[] circles;
 
-  @Override public void draw(Canvas canvas) {
+  @Override public void calculatePosition() {
     try {
       initializeCircles(8, this.color, this.width, this.height);
     } catch (InvalidNumberOfCircleException ex) {
       ex.printStackTrace();
     }
+  }
 
+  @Override public void draw(Canvas canvas) {
     for (Circle circle : circles) {
       circle.draw(canvas);
     }

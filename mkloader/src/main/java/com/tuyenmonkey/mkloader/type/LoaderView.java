@@ -19,5 +19,6 @@ public abstract class LoaderView {
     this.height = height;
   }
 
+  public abstract void calculatePosition();
   public abstract void draw(Canvas canvas);
 }
