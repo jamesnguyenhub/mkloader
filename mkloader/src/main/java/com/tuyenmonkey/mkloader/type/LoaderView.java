@@ -1,4 +1,4 @@
-package com.tuyenmonkey.mkloader;
+package com.tuyenmonkey.mkloader.type;
 
 import android.graphics.Canvas;
 
@@ -19,5 +19,5 @@ public abstract class LoaderView {
     this.height = height;
   }
 
-  abstract void draw(Canvas canvas);
+  public abstract void draw(Canvas canvas);
 }

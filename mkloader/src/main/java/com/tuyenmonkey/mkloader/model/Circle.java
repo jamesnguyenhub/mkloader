@@ -1,4 +1,4 @@
-package com.tuyenmonkey.mkloader;
+package com.tuyenmonkey.mkloader.model;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;

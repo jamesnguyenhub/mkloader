@@ -1,8 +1,10 @@
-package com.tuyenmonkey.mkloader;
+package com.tuyenmonkey.mkloader.type;
 
 import android.graphics.Canvas;
 import android.graphics.PointF;
 import com.tuyenmonkey.mkloader.exception.InvalidNumberOfCircleException;
+import com.tuyenmonkey.mkloader.model.Circle;
+import com.tuyenmonkey.mkloader.type.LoaderView;
 
 /**
  * Created by Tuyen Nguyen on 2/10/17.

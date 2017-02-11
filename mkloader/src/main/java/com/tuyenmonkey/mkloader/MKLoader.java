@@ -6,6 +6,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
+import com.tuyenmonkey.mkloader.type.LoaderView;
+import com.tuyenmonkey.mkloader.type.Spinner;
 
 /**
  * Created by Tuyen Nguyen on 2/5/17.
