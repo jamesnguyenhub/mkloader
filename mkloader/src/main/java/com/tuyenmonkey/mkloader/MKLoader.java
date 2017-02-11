@@ -13,7 +13,6 @@ import android.view.View;
 
 public class MKLoader extends View {
   private LoaderView loaderView;
-  private int color;
 
   public MKLoader(Context context) {
     super(context);
@@ -32,11 +31,10 @@ public class MKLoader extends View {
 
   private void initialize(Context context, AttributeSet attrs, int defStyleAttr) {
     loaderView = new Spinner();
+
     TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MKLoader);
 
-    this.color = typedArray.getColor(R.styleable.MKLoader_mk_color, Color.parseColor("#ffffff"));
-
-    loaderView.setColor(color);
+    loaderView.setColor(typedArray.getColor(R.styleable.MKLoader_mk_color, Color.parseColor("#ffffff")));
 
     typedArray.recycle();
   }
