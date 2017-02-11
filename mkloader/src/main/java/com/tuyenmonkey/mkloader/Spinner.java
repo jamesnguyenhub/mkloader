@@ -8,19 +8,8 @@ import com.tuyenmonkey.mkloader.exception.InvalidNumberOfCircleException;
  * Created by Tuyen Nguyen on 2/10/17.
  */
 
-public class Spinner implements ViewDrawer {
+public class Spinner extends LoaderView {
   private Circle[] circles;
-  private int color;
-  int width, height;
-
-  @Override public void setColor(int color) {
-    this.color = color;
-  }
-
-  @Override public void setSize(int width, int height) {
-    this.width = width;
-    this.height = height;
-  }
 
   @Override public void draw(Canvas canvas) {
     try {
