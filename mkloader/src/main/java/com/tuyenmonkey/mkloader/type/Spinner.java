@@ -21,8 +21,11 @@ public class Spinner extends LoaderView {
   }
 
   @Override public void draw(Canvas canvas) {
-    for (Circle circle : circles) {
-      circle.draw(canvas);
+    for (int i = 0; i < circles.length; i++) {
+      canvas.save();
+      canvas.rotate(45 * i, width / 2.0f, height / 2.0f);
+      circles[i].draw(canvas);
+      canvas.restore();
     }
   }
 
@@ -40,18 +43,16 @@ public class Spinner extends LoaderView {
 
     for (int i = 0; i < numberOfCircle; i++) {
       circles[i] = new Circle();
-      circles[i].setAlpha(1);
+      circles[i].setCenter(center.x, circleRadius);
       circles[i].setColor(color);
+      circles[i].setAlpha(126);
       circles[i].setRadius(circleRadius);
     }
 
-    circles[0].setCenter(center.x, circleRadius);
-    circles[1].setCenter(center.x + spinnerRadius / d, center.y - spinnerRadius / d);
-    circles[2].setCenter(center.x + spinnerRadius, center.y);
-    circles[3].setCenter(center.x + spinnerRadius / d, center.y + spinnerRadius / d);
-    circles[4].setCenter(center.x, center.y + spinnerRadius);
-    circles[5].setCenter(center.x - spinnerRadius / d, center.y + spinnerRadius / d);
-    circles[6].setCenter(circleRadius, center.y);
-    circles[7].setCenter(center.x - spinnerRadius / d, center.y - spinnerRadius / d);
+    startAnimation();
+  }
+
+  private void startAnimation() {
+
   }
 }

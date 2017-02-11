@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
+import com.tuyenmonkey.mkloader.callback.InvalidateListener;
 import com.tuyenmonkey.mkloader.type.LoaderView;
 import com.tuyenmonkey.mkloader.type.Spinner;
 
@@ -13,7 +14,7 @@ import com.tuyenmonkey.mkloader.type.Spinner;
  * Created by Tuyen Nguyen on 2/5/17.
  */
 
-public class MKLoader extends View {
+public class MKLoader extends View implements InvalidateListener {
   private LoaderView loaderView;
 
   public MKLoader(Context context) {
@@ -33,6 +34,7 @@ public class MKLoader extends View {
 
   private void initialize(Context context, AttributeSet attrs, int defStyleAttr) {
     loaderView = new Spinner();
+    loaderView.setInvalidateListener(this);
 
     TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MKLoader);
 
@@ -42,7 +44,7 @@ public class MKLoader extends View {
   }
 
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-    final int desiredSize = 100;
+    final int desiredSize = 300;
     final int measuredWidth = resolveSize(desiredSize, widthMeasureSpec);
     final int measuredHeight = resolveSize(desiredSize, heightMeasureSpec);
 
@@ -58,5 +60,9 @@ public class MKLoader extends View {
   @Override protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
     loaderView.draw(canvas);
+  }
+
+  @Override public void triggerDraw() {
+    invalidate();
   }
 }
