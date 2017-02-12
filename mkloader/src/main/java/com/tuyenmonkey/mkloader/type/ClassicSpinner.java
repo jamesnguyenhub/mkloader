@@ -9,19 +9,22 @@ import com.tuyenmonkey.mkloader.model.Circle;
  * Created by Tuyen Nguyen on 2/10/17.
  */
 
-public class Spinner extends LoaderView {
+public class ClassicSpinner extends LoaderView {
   private Circle[] circles;
   private int circlesSize;
   private PointF center;
+  private int desiredWidth;
+  private int desiredHeight;
 
-  public Spinner() {
+  public ClassicSpinner() {
     circlesSize = 8;
+    desiredWidth = 150;
+    desiredHeight = 150;
   }
 
   @Override public void compute() {
     center = new PointF(width / 2.0f, height / 2.0f);
-
-    initializeCircles(this.color, this.width, this.height);
+    initializeCircles(color, width, height);
     startAnimation();
   }
 
@@ -35,11 +38,11 @@ public class Spinner extends LoaderView {
   }
 
   @Override public int getDesiredWidth() {
-    return 300;
+    return desiredWidth;
   }
 
   @Override public int getDesiredHeight() {
-    return 300;
+    return desiredHeight;
   }
 
   private void initializeCircles(int color, int width, int height) {
