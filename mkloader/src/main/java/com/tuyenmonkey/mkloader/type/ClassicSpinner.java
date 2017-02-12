@@ -2,7 +2,6 @@ package com.tuyenmonkey.mkloader.type;
 
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;
-import android.graphics.PointF;
 import com.tuyenmonkey.mkloader.model.Circle;
 
 /**
@@ -12,44 +11,12 @@ import com.tuyenmonkey.mkloader.model.Circle;
 public class ClassicSpinner extends LoaderView {
   private Circle[] circles;
   private int circlesSize;
-  private PointF center;
-  private int desiredWidth;
-  private int desiredHeight;
 
   public ClassicSpinner() {
     circlesSize = 8;
-    desiredWidth = 150;
-    desiredHeight = 150;
   }
 
-  @Override public void setSize(int width, int height) {
-    super.setSize(width, height);
-    center = new PointF(width / 2.0f, height / 2.0f);
-  }
-
-  @Override public void compute() {
-    initializeCircles(color, width, height);
-    startAnimation();
-  }
-
-  @Override public void draw(Canvas canvas) {
-    for (int i = 0; i < circlesSize; i++) {
-      canvas.save();
-      canvas.rotate(45 * i, center.x, center.y);
-      circles[i].draw(canvas);
-      canvas.restore();
-    }
-  }
-
-  @Override public int getDesiredWidth() {
-    return desiredWidth;
-  }
-
-  @Override public int getDesiredHeight() {
-    return desiredHeight;
-  }
-
-  private void initializeCircles(int color, int width, int height) {
+  @Override public void initializeObjects() {
     final float size = Math.min(width, height);
     final float circleRadius = size / 10.0f;
     circles = new Circle[circlesSize];
@@ -63,7 +30,7 @@ public class ClassicSpinner extends LoaderView {
     }
   }
 
-  private void startAnimation() {
+  @Override public void setUpAnimation() {
     for (int i = 0; i < circlesSize; i++) {
       final int index = i;
 
@@ -79,6 +46,15 @@ public class ClassicSpinner extends LoaderView {
       });
 
       fadeAnimator.start();
+    }
+  }
+
+  @Override public void draw(Canvas canvas) {
+    for (int i = 0; i < circlesSize; i++) {
+      canvas.save();
+      canvas.rotate(45 * i, center.x, center.y);
+      circles[i].draw(canvas);
+      canvas.restore();
     }
   }
 }

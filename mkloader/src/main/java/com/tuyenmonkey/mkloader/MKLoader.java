@@ -7,8 +7,8 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import com.tuyenmonkey.mkloader.callback.InvalidateListener;
-import com.tuyenmonkey.mkloader.type.LoaderView;
 import com.tuyenmonkey.mkloader.type.ClassicSpinner;
+import com.tuyenmonkey.mkloader.type.LoaderView;
 
 /**
  * Created by Tuyen Nguyen on 2/5/17.
@@ -53,7 +53,8 @@ public class MKLoader extends View implements InvalidateListener {
   @Override protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
     super.onLayout(changed, left, top, right, bottom);
     loaderView.setSize(getWidth(), getHeight());
-    loaderView.compute();
+    loaderView.initializeObjects();
+    loaderView.setUpAnimation();
   }
 
   @Override protected void onDraw(Canvas canvas) {
