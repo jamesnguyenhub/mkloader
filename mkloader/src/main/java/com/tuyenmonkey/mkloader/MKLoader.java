@@ -7,8 +7,8 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import com.tuyenmonkey.mkloader.callback.InvalidateListener;
+import com.tuyenmonkey.mkloader.type.LineSpinner;
 import com.tuyenmonkey.mkloader.type.LoaderView;
-import com.tuyenmonkey.mkloader.type.Pulse;
 
 /**
  * Created by Tuyen Nguyen on 2/5/17.
@@ -34,7 +34,7 @@ public class MKLoader extends View implements InvalidateListener {
 
   private void initialize(Context context, AttributeSet attrs, int defStyleAttr) {
     try {
-      loaderView = new Pulse(5);
+      loaderView = new LineSpinner();
     } catch (Exception ex) {
       ex.printStackTrace();
     }

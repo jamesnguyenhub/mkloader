@@ -14,9 +14,10 @@ public class Radar extends LoaderView {
   private float degree;
 
   @Override public void initializeObjects() {
+    final float size = Math.min(width, height);
     line = new Line();
     line.setPoint1(center);
-    line.setPoint2(new PointF(0, center.y));
+    line.setPoint2(new PointF(0, size / 2f));
     line.setColor(color);
     line.setWidth(5);
   }
