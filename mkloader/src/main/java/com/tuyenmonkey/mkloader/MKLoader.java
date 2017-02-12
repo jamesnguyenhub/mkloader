@@ -53,7 +53,7 @@ public class MKLoader extends View implements InvalidateListener {
   @Override protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
     super.onLayout(changed, left, top, right, bottom);
     loaderView.setSize(getWidth(), getHeight());
-    loaderView.calculatePosition();
+    loaderView.compute();
   }
 
   @Override protected void onDraw(Canvas canvas) {
@@ -61,7 +61,7 @@ public class MKLoader extends View implements InvalidateListener {
     loaderView.draw(canvas);
   }
 
-  @Override public void triggerDraw() {
+  @Override public void reDraw() {
     invalidate();
   }
 }

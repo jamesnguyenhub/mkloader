@@ -25,11 +25,11 @@ public abstract class LoaderView {
     this.invalidateListener = invalidateListener;
   }
 
-  public abstract void calculatePosition();
-
-  public abstract void draw(Canvas canvas);
-
   public abstract int getDesiredWidth();
 
   public abstract int getDesiredHeight();
+
+  public abstract void compute();
+
+  public abstract void draw(Canvas canvas);
 }

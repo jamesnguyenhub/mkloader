@@ -11,15 +11,24 @@ import com.tuyenmonkey.mkloader.model.Circle;
 
 public class Spinner extends LoaderView {
   private Circle[] circles;
+  private int circlesSize;
+  private PointF center;
 
-  @Override public void calculatePosition() {
-    initializeCircles(8, this.color, this.width, this.height);
+  public Spinner() {
+    circlesSize = 8;
+  }
+
+  @Override public void compute() {
+    center = new PointF(width / 2.0f, height / 2.0f);
+
+    initializeCircles(this.color, this.width, this.height);
+    startAnimation();
   }
 
   @Override public void draw(Canvas canvas) {
     for (int i = 0; i < circles.length; i++) {
       canvas.save();
-      canvas.rotate(45 * i, width / 2.0f, height / 2.0f);
+      canvas.rotate(45 * i, center.x, center.y);
       circles[i].draw(canvas);
       canvas.restore();
     }
@@ -33,38 +42,34 @@ public class Spinner extends LoaderView {
     return 300;
   }
 
-  private void initializeCircles(int numberOfCircle, int color, int width, int height) {
+  private void initializeCircles(int color, int width, int height) {
     final float size = Math.min(width, height);
     final float circleRadius = size / 10.0f;
-    final PointF center = new PointF(width / 2.0f, height / 2.0f);
-    final float spinnerRadius = size / 2.0f - circleRadius;
-    final float d = (float)Math.pow(2, 1.0 / 2);
-    circles = new Circle[numberOfCircle];
+    circles = new Circle[circlesSize];
 
-    for (int i = 0; i < numberOfCircle; i++) {
+    for (int i = 0; i < circlesSize; i++) {
       circles[i] = new Circle();
       circles[i].setCenter(center.x, circleRadius);
       circles[i].setColor(color);
       circles[i].setAlpha(126);
       circles[i].setRadius(circleRadius);
     }
-
-    startAnimation();
   }
 
   private void startAnimation() {
     int[] delayTimes = new int[]{0, 120, 240, 360, 480, 600, 720, 840};
-    for (int i = 0; i < circles.length; i++) {
+
+    for (int i = 0; i < circlesSize; i++) {
       final int index = i;
+
       ValueAnimator fadeAnimator = ValueAnimator.ofInt(126, 255, 126);
       fadeAnimator.setRepeatCount(ValueAnimator.INFINITE);
       fadeAnimator.setDuration(1000);
       fadeAnimator.setStartDelay(delayTimes[i]);
       fadeAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
         @Override public void onAnimationUpdate(ValueAnimator animation) {
-          int value = (int)animation.getAnimatedValue();
-          circles[index].setAlpha(value);
-          invalidateListener.triggerDraw();
+          circles[index].setAlpha((int)animation.getAnimatedValue());
+          invalidateListener.reDraw();
         }
       });
 

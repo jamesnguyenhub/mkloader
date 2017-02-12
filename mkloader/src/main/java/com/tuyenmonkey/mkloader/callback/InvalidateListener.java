@@ -5,5 +5,5 @@ package com.tuyenmonkey.mkloader.callback;
  */
 
 public interface InvalidateListener {
-  void triggerDraw();
+  void reDraw();
 }
