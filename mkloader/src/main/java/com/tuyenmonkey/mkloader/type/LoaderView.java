@@ -28,4 +28,8 @@ public abstract class LoaderView {
   public abstract void calculatePosition();
 
   public abstract void draw(Canvas canvas);
+
+  public abstract int getDesiredWidth();
+
+  public abstract int getDesiredHeight();
 }

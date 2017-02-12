@@ -3,7 +3,6 @@ package com.tuyenmonkey.mkloader.type;
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;
 import android.graphics.PointF;
-import com.tuyenmonkey.mkloader.exception.InvalidNumberOfCircleException;
 import com.tuyenmonkey.mkloader.model.Circle;
 
 /**
@@ -14,11 +13,7 @@ public class Spinner extends LoaderView {
   private Circle[] circles;
 
   @Override public void calculatePosition() {
-    try {
-      initializeCircles(8, this.color, this.width, this.height);
-    } catch (InvalidNumberOfCircleException ex) {
-      ex.printStackTrace();
-    }
+    initializeCircles(8, this.color, this.width, this.height);
   }
 
   @Override public void draw(Canvas canvas) {
@@ -30,11 +25,15 @@ public class Spinner extends LoaderView {
     }
   }
 
-  private void initializeCircles(int numberOfCircle, int color, int width, int height) throws InvalidNumberOfCircleException {
-    if (numberOfCircle != 8) {
-      throw new InvalidNumberOfCircleException();
-    }
+  @Override public int getDesiredWidth() {
+    return 300;
+  }
 
+  @Override public int getDesiredHeight() {
+    return 300;
+  }
+
+  private void initializeCircles(int numberOfCircle, int color, int width, int height) {
     final float size = Math.min(width, height);
     final float circleRadius = size / 10.0f;
     final PointF center = new PointF(width / 2.0f, height / 2.0f);

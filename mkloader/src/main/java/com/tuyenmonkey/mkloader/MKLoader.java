@@ -44,9 +44,8 @@ public class MKLoader extends View implements InvalidateListener {
   }
 
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-    final int desiredSize = 300;
-    final int measuredWidth = resolveSize(desiredSize, widthMeasureSpec);
-    final int measuredHeight = resolveSize(desiredSize, heightMeasureSpec);
+    final int measuredWidth = resolveSize(loaderView.getDesiredWidth(), widthMeasureSpec);
+    final int measuredHeight = resolveSize(loaderView.getDesiredHeight(), heightMeasureSpec);
 
     setMeasuredDimension(measuredWidth, measuredHeight);
   }
