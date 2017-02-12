@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.tuyenmonkey.mkloader.callback.InvalidateListener;
 import com.tuyenmonkey.mkloader.type.LoaderView;
-import com.tuyenmonkey.mkloader.type.Worm;
+import com.tuyenmonkey.mkloader.type.Pulse;
 
 /**
  * Created by Tuyen Nguyen on 2/5/17.
@@ -33,7 +33,11 @@ public class MKLoader extends View implements InvalidateListener {
   }
 
   private void initialize(Context context, AttributeSet attrs, int defStyleAttr) {
-    loaderView = new Worm();
+    try {
+      loaderView = new Pulse(5);
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
     loaderView.setInvalidateListener(this);
 
     TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MKLoader);
