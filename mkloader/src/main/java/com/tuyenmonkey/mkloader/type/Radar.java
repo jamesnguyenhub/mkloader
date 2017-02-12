@@ -9,14 +9,9 @@ import com.tuyenmonkey.mkloader.model.Line;
  * Created by Tuyen Nguyen on 2/12/17.
  */
 
-public class RadarLoader extends LoaderView {
+public class Radar extends LoaderView {
   private Line line;
   private float degree;
-
-  public RadarLoader() {
-    desiredWidth = 150;
-    desiredHeight = 150;
-  }
 
   @Override public void initializeObjects() {
     line = new Line();

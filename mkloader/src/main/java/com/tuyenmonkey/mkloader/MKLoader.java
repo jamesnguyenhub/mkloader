@@ -7,8 +7,8 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import com.tuyenmonkey.mkloader.callback.InvalidateListener;
-import com.tuyenmonkey.mkloader.type.ClassicSpinner;
 import com.tuyenmonkey.mkloader.type.LoaderView;
+import com.tuyenmonkey.mkloader.type.Worm;
 
 /**
  * Created by Tuyen Nguyen on 2/5/17.
@@ -33,7 +33,7 @@ public class MKLoader extends View implements InvalidateListener {
   }
 
   private void initialize(Context context, AttributeSet attrs, int defStyleAttr) {
-    loaderView = new ClassicSpinner();
+    loaderView = new Worm();
     loaderView.setInvalidateListener(this);
 
     TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MKLoader);

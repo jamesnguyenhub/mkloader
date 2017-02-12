@@ -15,6 +15,11 @@ public abstract class LoaderView {
   protected PointF center;
   protected InvalidateListener invalidateListener;
 
+  public LoaderView() {
+    this.desiredWidth = 150;
+    this.desiredHeight = 150;
+  }
+
   public void setColor(int color) {
     this.color = color;
   }
@@ -22,8 +27,6 @@ public abstract class LoaderView {
   public void setSize(int width, int height) {
     this.width = width;
     this.height = height;
-    this.desiredWidth = 150;
-    this.desiredHeight = 150;
     this.center = new PointF(width / 2.0f, height / 2.0f);
   }
 
