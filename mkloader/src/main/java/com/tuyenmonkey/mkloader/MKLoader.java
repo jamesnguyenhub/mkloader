@@ -7,7 +7,7 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import com.tuyenmonkey.mkloader.callback.InvalidateListener;
-import com.tuyenmonkey.mkloader.type.LineSpinner;
+import com.tuyenmonkey.mkloader.type.FishSpinner;
 import com.tuyenmonkey.mkloader.type.LoaderView;
 
 /**
@@ -34,7 +34,7 @@ public class MKLoader extends View implements InvalidateListener {
 
   private void initialize(Context context, AttributeSet attrs, int defStyleAttr) {
     try {
-      loaderView = new LineSpinner();
+      loaderView = new FishSpinner();
     } catch (Exception ex) {
       ex.printStackTrace();
     }
