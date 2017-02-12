@@ -22,14 +22,18 @@ public class ClassicSpinner extends LoaderView {
     desiredHeight = 150;
   }
 
-  @Override public void compute() {
+  @Override public void setSize(int width, int height) {
+    super.setSize(width, height);
     center = new PointF(width / 2.0f, height / 2.0f);
+  }
+
+  @Override public void compute() {
     initializeCircles(color, width, height);
     startAnimation();
   }
 
   @Override public void draw(Canvas canvas) {
-    for (int i = 0; i < circles.length; i++) {
+    for (int i = 0; i < circlesSize; i++) {
       canvas.save();
       canvas.rotate(45 * i, center.x, center.y);
       circles[i].draw(canvas);
@@ -60,15 +64,13 @@ public class ClassicSpinner extends LoaderView {
   }
 
   private void startAnimation() {
-    int[] delayTimes = new int[]{0, 120, 240, 360, 480, 600, 720, 840};
-
     for (int i = 0; i < circlesSize; i++) {
       final int index = i;
 
       ValueAnimator fadeAnimator = ValueAnimator.ofInt(126, 255, 126);
       fadeAnimator.setRepeatCount(ValueAnimator.INFINITE);
       fadeAnimator.setDuration(1000);
-      fadeAnimator.setStartDelay(delayTimes[i]);
+      fadeAnimator.setStartDelay(index * 120);
       fadeAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
         @Override public void onAnimationUpdate(ValueAnimator animation) {
           circles[index].setAlpha((int)animation.getAnimatedValue());
