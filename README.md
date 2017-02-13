@@ -35,7 +35,9 @@ Beautiful and smooth custom loading views
 Gradle
 
 ```javascript
-...updating
+dependencies {
+  compile 'com.tuyenmonkey:mkloader:1.0.0'
+}
 ```
 Snapshots of the development version are available in [Sonatype's `snapshots` repository](https://oss.sonatype.org/content/repositories/snapshots/).
 
