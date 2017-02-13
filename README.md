@@ -1,4 +1,7 @@
 # mkloader
+
+[![Build Status](https://travis-ci.org/nntuyen/mkloader.svg?branch=master)](https://travis-ci.org/nntuyen/mkloader)
+
 Beautiful and smooth custom loading views
 
 ![](screenshot/screenshot.gif)
