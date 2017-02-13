@@ -8,6 +8,7 @@ import com.tuyenmonkey.mkloader.type.LoaderView;
 import com.tuyenmonkey.mkloader.type.Pulse;
 import com.tuyenmonkey.mkloader.type.Radar;
 import com.tuyenmonkey.mkloader.type.TwinFishesSpinner;
+import com.tuyenmonkey.mkloader.type.Whirlpool;
 import com.tuyenmonkey.mkloader.type.Worm;
 
 /**
@@ -48,6 +49,8 @@ public class LoaderGenerator {
         return new TwinFishesSpinner();
       case 8:
         return new Worm();
+      case 9:
+        return new Whirlpool();
       default:
         return new ClassicSpinner();
     }
