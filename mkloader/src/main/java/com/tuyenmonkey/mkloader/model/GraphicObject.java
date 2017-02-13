@@ -27,5 +27,9 @@ public abstract class GraphicObject {
     paint.setStrokeWidth(width);
   }
 
+  public void setStyle(Paint.Style style) {
+    paint.setStyle(style);
+  }
+
   public abstract void draw(Canvas canvas);
 }

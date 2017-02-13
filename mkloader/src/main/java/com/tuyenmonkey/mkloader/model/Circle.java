@@ -8,7 +8,7 @@ import android.graphics.PointF;
  * Created by Tuyen Nguyen on 2/10/17.
  */
 
-public class Circle {
+public class Circle extends GraphicObject {
   private Paint paint;
   private PointF center;
   private float radius;
@@ -19,14 +19,6 @@ public class Circle {
     center = new PointF();
   }
 
-  public void setColor(int color) {
-    paint.setColor(color);
-  }
-
-  public void setAlpha(int alpha) {
-    paint.setAlpha(alpha);
-  }
-
   public void setRadius(float radius) {
     this.radius = radius;
   }
@@ -35,7 +27,7 @@ public class Circle {
     center.set(x, y);
   }
 
-  public void draw(Canvas canvas) {
+  @Override public void draw(Canvas canvas) {
     canvas.drawCircle(center.x, center.y, radius, paint);
   }
 }
