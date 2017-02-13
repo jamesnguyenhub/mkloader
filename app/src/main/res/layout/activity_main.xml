@@ -1,20 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#0DC5C1"
-    tools:context="com.tuyenmonkey.sample.MainActivity">
-
-  <com.tuyenmonkey.mkloader.MKLoader
+>
+  <LinearLayout
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:orientation="vertical"
       android:layout_centerInParent="true"
-  />
+  >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+    >
+      <com.tuyenmonkey.mkloader.MKLoader
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:mk_type="Sharingan"
+      />
+
+      <com.tuyenmonkey.mkloader.MKLoader
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="24dp"
+          app:mk_type="TwinFishesSpinner"
+      />
+
+      <com.tuyenmonkey.mkloader.MKLoader
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="24dp"
+          app:mk_type="ClassicSpinner"
+      />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+    >
+      <com.tuyenmonkey.mkloader.MKLoader
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:mk_type="LineSpinner"
+      />
+
+      <com.tuyenmonkey.mkloader.MKLoader
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="24dp"
+          app:mk_type="FishSpinner"
+      />
+
+      <com.tuyenmonkey.mkloader.MKLoader
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="24dp"
+          app:mk_type="PhoneWave"
+      />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+    >
+      <com.tuyenmonkey.mkloader.MKLoader
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:mk_type="ThreePulse"
+      />
+
+      <com.tuyenmonkey.mkloader.MKLoader
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="24dp"
+          app:mk_type="FourPulse"
+      />
+
+      <com.tuyenmonkey.mkloader.MKLoader
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="24dp"
+          app:mk_type="FivePulse"
+      />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+    >
+      <com.tuyenmonkey.mkloader.MKLoader
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:mk_type="Worm"
+      />
+
+      <com.tuyenmonkey.mkloader.MKLoader
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="24dp"
+          app:mk_type="Whirlpool"
+      />
+
+      <com.tuyenmonkey.mkloader.MKLoader
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="24dp"
+          app:mk_type="Radar"
+      />
+    </LinearLayout>
+  </LinearLayout>
 </RelativeLayout>

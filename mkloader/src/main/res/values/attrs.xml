@@ -2,5 +2,6 @@
 <resources>
   <declare-styleable name="MKLoader">
     <attr name="mk_color" format="color" />
+    <attr name="mk_type" format="string" />
   </declare-styleable>
 </resources>
