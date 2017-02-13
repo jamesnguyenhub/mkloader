@@ -1,5 +1,4 @@
 # mkloader
-
 [![Build Status](https://travis-ci.org/nntuyen/mkloader.svg?branch=master)](https://travis-ci.org/nntuyen/mkloader)
 
 Beautiful and smooth custom loading views
@@ -38,6 +37,7 @@ Gradle
 ```javascript
 ...updating
 ```
+Snapshots of the development version are available in [Sonatype's `snapshots` repository](https://oss.sonatype.org/content/repositories/snapshots/).
 
 ## License
 
