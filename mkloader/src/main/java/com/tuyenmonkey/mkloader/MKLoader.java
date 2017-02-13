@@ -33,7 +33,7 @@ public class MKLoader extends View implements InvalidateListener {
   }
 
   private void initialize(Context context, AttributeSet attrs, int defStyleAttr) {
-    loaderView = LoaderGenerator.generateLoaderView(9);
+    loaderView = LoaderGenerator.generateLoaderView(10);
     loaderView.setInvalidateListener(this);
 
     TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MKLoader);
