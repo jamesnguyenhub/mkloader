@@ -13,7 +13,6 @@ import com.tuyenmonkey.mkloader.model.Arc;
 public class PhoneWave extends LoaderView {
   private Arc[] arcs;
   private int numberOfArc;
-  private float[] fades;
 
   public PhoneWave() {
     numberOfArc = 3;
@@ -22,7 +21,6 @@ public class PhoneWave extends LoaderView {
   @Override public void initializeObjects() {
     float r = Math.min(width, height) / 2f;
     arcs = new Arc[numberOfArc];
-    fades = new float[numberOfArc];
 
     for (int i = 0; i < numberOfArc; i++) {
       float d = r / 4 + i * r / 4;

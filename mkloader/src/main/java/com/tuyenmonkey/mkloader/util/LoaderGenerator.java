@@ -8,6 +8,7 @@ import com.tuyenmonkey.mkloader.type.LoaderView;
 import com.tuyenmonkey.mkloader.type.PhoneWave;
 import com.tuyenmonkey.mkloader.type.Pulse;
 import com.tuyenmonkey.mkloader.type.Radar;
+import com.tuyenmonkey.mkloader.type.Sharingan;
 import com.tuyenmonkey.mkloader.type.TwinFishesSpinner;
 import com.tuyenmonkey.mkloader.type.Whirlpool;
 import com.tuyenmonkey.mkloader.type.Worm;
@@ -54,6 +55,8 @@ public class LoaderGenerator {
         return new Whirlpool();
       case 10:
         return new PhoneWave();
+      case 11:
+        return new Sharingan();
       default:
         return new ClassicSpinner();
     }
