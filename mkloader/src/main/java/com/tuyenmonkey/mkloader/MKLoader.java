@@ -7,8 +7,8 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import com.tuyenmonkey.mkloader.callback.InvalidateListener;
-import com.tuyenmonkey.mkloader.type.FishSpinner;
 import com.tuyenmonkey.mkloader.type.LoaderView;
+import com.tuyenmonkey.mkloader.type.TwinFishesSpinner;
 
 /**
  * Created by Tuyen Nguyen on 2/5/17.
@@ -34,7 +34,7 @@ public class MKLoader extends View implements InvalidateListener {
 
   private void initialize(Context context, AttributeSet attrs, int defStyleAttr) {
     try {
-      loaderView = new FishSpinner();
+      loaderView = new TwinFishesSpinner();
     } catch (Exception ex) {
       ex.printStackTrace();
     }
