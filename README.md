@@ -1,6 +1,7 @@
 # mkloader
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-MK%20Loader-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5285)
 [![Build Status](https://travis-ci.org/nntuyen/mkloader.svg?branch=master)](https://travis-ci.org/nntuyen/mkloader)
+[![Android Gems](http://www.android-gems.com/badge/nntuyen/mkloader.svg?branch=master)](http://www.android-gems.com/lib/nntuyen/mkloader)
 
 Beautiful and smooth custom loading views
 
