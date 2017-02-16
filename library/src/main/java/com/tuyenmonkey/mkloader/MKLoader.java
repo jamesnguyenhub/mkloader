@@ -34,9 +34,8 @@ public class MKLoader extends View implements InvalidateListener {
 
   private void initialize(Context context, AttributeSet attrs, int defStyleAttr) {
     TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MKLoader);
+    int loaderType = typedArray.getInt(R.styleable.MKLoader_mk_type,-1);
 
-    String loaderType = typedArray.getString(R.styleable.MKLoader_mk_type);
-    if (loaderType == null) loaderType = "ClassicSpinner";
     loaderView = LoaderGenerator.generateLoaderView(loaderType);
     loaderView.setColor(typedArray.getColor(R.styleable.MKLoader_mk_color, Color.parseColor("#ffffff")));
     loaderView.setInvalidateListener(this);
