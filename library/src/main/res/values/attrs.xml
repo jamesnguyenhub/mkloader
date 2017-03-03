@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <declare-styleable name="MKLoader">
-    <attr name="mk_color" format="color" />
-    <attr name="mk_type" format="string" />
-  </declare-styleable>
+    <declare-styleable name="MKLoader">
+        <attr name="mk_color" format="color"/>
+        <attr name="mk_type">
+            <enum name="Sharingan" value="11"/>
+            <enum name="TwinFishesSpinner" value="7"/>
+            <enum name="ClassicSpinner" value="0"/>
+
+            <enum name="LineSpinner" value="2"/>
+            <enum name="FishSpinner" value="1"/>
+            <enum name="PhoneWave" value="10"/>
+
+            <enum name="ThreePulse" value="3"/>
+            <enum name="FourPulse" value="4"/>
+            <enum name="FivePulse" value="5"/>
+
+            <enum name="Worm" value="8"/>
+            <enum name="Whirlpool" value="9"/>
+            <enum name="Radar" value="6"/>
+        </attr>
+    </declare-styleable>
 </resources>
