@@ -27,7 +27,7 @@ ext {
   versionCode = 2
   versionName = "1.2.0"
 
-  supportLibVersion = '25.2.0'
+  supportLibVersion = '25.1.0'
 }
 
 task clean(type: Delete) {

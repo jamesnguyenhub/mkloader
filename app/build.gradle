@@ -27,4 +27,6 @@ dependencies {
   compile "com.android.support:appcompat-v7:${supportLibVersion}"
   testCompile 'junit:junit:4.12'
   compile project(':library')
+
+  debugCompile "com.squareup.leakcanary:leakcanary-android:1.5"
 }
