@@ -43,7 +43,9 @@ public class LineSpinner extends LoaderView {
       fadeAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
         @Override public void onAnimationUpdate(ValueAnimator animation) {
           lines[index].setAlpha((int)animation.getAnimatedValue());
-          invalidateListener.reDraw();
+          if (invalidateListener != null) {
+            invalidateListener.reDraw();
+          }
         }
       });
 

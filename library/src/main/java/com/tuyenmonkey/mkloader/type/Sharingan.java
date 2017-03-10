@@ -56,7 +56,9 @@ public class Sharingan extends LoaderView {
     rotateAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
       @Override public void onAnimationUpdate(ValueAnimator animation) {
         rotate = (float)animation.getAnimatedValue();
-        invalidateListener.reDraw();
+        if (invalidateListener != null) {
+          invalidateListener.reDraw();
+        }
       }
     });
 
@@ -66,7 +68,9 @@ public class Sharingan extends LoaderView {
     scaleAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
       @Override public void onAnimationUpdate(ValueAnimator animation) {
         scale = (float)animation.getAnimatedValue();
-        invalidateListener.reDraw();
+        if (invalidateListener != null) {
+          invalidateListener.reDraw();
+        }
       }
     });
 

@@ -65,4 +65,11 @@ public class MKLoader extends View implements InvalidateListener {
   @Override public void reDraw() {
     invalidate();
   }
+
+  @Override protected void onDetachedFromWindow() {
+    super.onDetachedFromWindow();
+    if (loaderView != null) {
+      loaderView.onDetach();
+    }
+  }
 }

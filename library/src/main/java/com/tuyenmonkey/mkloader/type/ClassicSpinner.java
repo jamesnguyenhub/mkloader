@@ -41,7 +41,9 @@ public class ClassicSpinner extends LoaderView {
       fadeAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
         @Override public void onAnimationUpdate(ValueAnimator animation) {
           circles[index].setAlpha((int)animation.getAnimatedValue());
-          invalidateListener.reDraw();
+          if (invalidateListener != null) {
+            invalidateListener.reDraw();
+          }
         }
       });
 

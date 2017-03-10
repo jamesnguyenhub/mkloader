@@ -41,7 +41,9 @@ public class Worm extends LoaderView {
       translateAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
         @Override public void onAnimationUpdate(ValueAnimator animation) {
           circles[index].setCenter(center.x, (float)animation.getAnimatedValue());
-          invalidateListener.reDraw();
+          if (invalidateListener != null) {
+            invalidateListener.reDraw();
+          }
         }
       });
 

@@ -46,7 +46,9 @@ public class PhoneWave extends LoaderView {
       fadeAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
         @Override public void onAnimationUpdate(ValueAnimator animation) {
           arcs[index].setAlpha((int)animation.getAnimatedValue());
-          invalidateListener.reDraw();
+          if (invalidateListener != null) {
+            invalidateListener.reDraw();
+          }
         }
       });
 

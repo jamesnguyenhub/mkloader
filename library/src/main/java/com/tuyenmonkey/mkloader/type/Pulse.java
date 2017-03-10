@@ -50,7 +50,9 @@ public class Pulse extends LoaderView {
       scaleAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
         @Override public void onAnimationUpdate(ValueAnimator animation) {
           scaleY[index] = (float)animation.getAnimatedValue();
-          invalidateListener.reDraw();
+          if (invalidateListener != null) {
+            invalidateListener.reDraw();
+          }
         }
       });
 

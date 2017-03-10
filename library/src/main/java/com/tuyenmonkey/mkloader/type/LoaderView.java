@@ -47,4 +47,10 @@ public abstract class LoaderView {
   public abstract void setUpAnimation();
 
   public abstract void draw(Canvas canvas);
+
+  public void onDetach() {
+    if (invalidateListener != null) {
+      invalidateListener = null;
+    }
+  }
 }

@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     btOpen.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         startActivity(TestActivity.getCallingIntent(MainActivity.this));
-        finish();
       }
     });
   }

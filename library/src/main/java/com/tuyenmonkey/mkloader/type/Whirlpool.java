@@ -47,7 +47,9 @@ public class Whirlpool extends LoaderView {
       fadeAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
         @Override public void onAnimationUpdate(ValueAnimator animation) {
           rotates[index] = (float)animation.getAnimatedValue();
-          invalidateListener.reDraw();
+          if (invalidateListener != null) {
+            invalidateListener.reDraw();
+          }
         }
       });
 
