@@ -29,7 +29,6 @@ Beautiful and smooth custom loading views
 - `Worm`
 - `Whirlpool`
 - `Radar`
-- `...more types are in development`
 
 ## Download
 Gradle
