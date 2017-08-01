@@ -48,6 +48,10 @@ public abstract class LoaderView {
 
   public abstract void draw(Canvas canvas);
 
+  public boolean isDetached() {
+    return invalidateListener == null;
+  }
+
   public void onDetach() {
     if (invalidateListener != null) {
       invalidateListener = null;

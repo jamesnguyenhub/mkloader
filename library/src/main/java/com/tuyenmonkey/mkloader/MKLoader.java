@@ -38,7 +38,6 @@ public class MKLoader extends View implements InvalidateListener {
 
     loaderView = LoaderGenerator.generateLoaderView(loaderType);
     loaderView.setColor(typedArray.getColor(R.styleable.MKLoader_mk_color, Color.parseColor("#ffffff")));
-    loaderView.setInvalidateListener(this);
 
     typedArray.recycle();
   }
@@ -64,6 +63,13 @@ public class MKLoader extends View implements InvalidateListener {
 
   @Override public void reDraw() {
     invalidate();
+  }
+
+  @Override protected void onAttachedToWindow() {
+    super.onAttachedToWindow();
+    if (loaderView != null && loaderView.isDetached()) {
+      loaderView.setInvalidateListener(this);
+    }
   }
 
   @Override protected void onDetachedFromWindow() {
