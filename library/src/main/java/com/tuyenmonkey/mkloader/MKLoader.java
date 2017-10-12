@@ -4,7 +4,11 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.os.Parcelable;
+import android.support.annotation.IntDef;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import com.tuyenmonkey.mkloader.callback.InvalidateListener;
 import com.tuyenmonkey.mkloader.type.LoaderView;
@@ -69,6 +73,8 @@ public class MKLoader extends View implements InvalidateListener {
     super.onAttachedToWindow();
     if (loaderView != null && loaderView.isDetached()) {
       loaderView.setInvalidateListener(this);
+
+      loaderView.setUpAnimation();
     }
   }
 
@@ -76,6 +82,16 @@ public class MKLoader extends View implements InvalidateListener {
     super.onDetachedFromWindow();
     if (loaderView != null) {
       loaderView.onDetach();
+      loaderView.removeUpdateListener();
     }
   }
+
+  @Override
+  public void setVisibility(int visibility) {
+    super.setVisibility(visibility);
+    if(visibility == GONE) {
+      loaderView.removeUpdateListener();
+    }
+  }
+
 }
