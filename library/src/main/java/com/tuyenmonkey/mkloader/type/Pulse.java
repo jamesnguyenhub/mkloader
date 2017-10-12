@@ -42,7 +42,7 @@ public class Pulse extends LoaderView {
 
   @Override public void setUpAnimation() {
     if(lines == null) return;
-
+    removeUpdateListener();
     for (int i = 0; i < numberOfLines; i++) {
       final int index = i;
       ValueAnimator scaleAnimator = ValueAnimator.ofFloat(1f, 1.5f, 1f);

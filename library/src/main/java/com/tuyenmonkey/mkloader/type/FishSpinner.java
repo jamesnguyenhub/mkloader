@@ -33,6 +33,7 @@ public class FishSpinner extends LoaderView {
 
   @Override public void setUpAnimation() {
     if(circles == null) return;
+    removeUpdateListener();
 
     for (int i = 0; i < numberOfCircle; i++) {
       final int index = i;

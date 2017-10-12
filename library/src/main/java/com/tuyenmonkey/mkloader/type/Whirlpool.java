@@ -38,7 +38,7 @@ public class Whirlpool extends LoaderView {
 
   @Override public void setUpAnimation() {
     if(arcs == null) return;
-
+    removeUpdateListener();
     for (int i = numberOfArc - 1; i >= 0; i--) {
       final int index = i;
 

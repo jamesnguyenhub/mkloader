@@ -51,7 +51,7 @@ public class Sharingan extends LoaderView {
 
   @Override public void setUpAnimation() {
     if(sharingans == null) return;
-
+    removeUpdateListener();
     ValueAnimator rotateAnimator = ValueAnimator.ofFloat(0, 360);
     rotateAnimator.setDuration(1500);
     rotateAnimator.setRepeatCount(ValueAnimator.INFINITE);
