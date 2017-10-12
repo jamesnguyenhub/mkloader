@@ -23,6 +23,8 @@ public class Radar extends LoaderView {
   }
 
   @Override public void setUpAnimation() {
+    if(line == null) return;
+    removeUpdateListener();
     ValueAnimator animator = ValueAnimator.ofFloat(0, 359);
     animator.setDuration(1000);
     animator.setRepeatCount(ValueAnimator.INFINITE);
@@ -36,6 +38,7 @@ public class Radar extends LoaderView {
     });
 
     animator.start();
+    valueAnimators.add(animator);
   }
 
   @Override public void draw(Canvas canvas) {
@@ -44,4 +47,6 @@ public class Radar extends LoaderView {
     line.draw(canvas);
     canvas.restore();
   }
+
+
 }

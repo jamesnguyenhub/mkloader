@@ -39,6 +39,8 @@ public class TwinFishesSpinner extends LoaderView {
   }
 
   @Override public void setUpAnimation() {
+    if(circles == null) return;
+    removeUpdateListener();
     for (int i = 0; i < numberOfCircle; i++) {
       final int index = i;
 
@@ -56,6 +58,7 @@ public class TwinFishesSpinner extends LoaderView {
       });
 
       fadeAnimator.start();
+      valueAnimators.add(fadeAnimator);
     }
   }
 
@@ -67,4 +70,6 @@ public class TwinFishesSpinner extends LoaderView {
       canvas.restore();
     }
   }
+
+
 }

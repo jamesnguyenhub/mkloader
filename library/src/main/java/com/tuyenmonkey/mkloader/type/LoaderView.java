@@ -1,8 +1,11 @@
 package com.tuyenmonkey.mkloader.type;
 
+import android.animation.ValueAnimator;
 import android.graphics.Canvas;
 import android.graphics.PointF;
 import com.tuyenmonkey.mkloader.callback.InvalidateListener;
+
+import java.util.ArrayList;
 
 /**
  * Created by Tuyen Nguyen on 2/11/17.
@@ -14,6 +17,8 @@ public abstract class LoaderView {
   protected int desiredWidth, desiredHeight;
   protected PointF center;
   protected InvalidateListener invalidateListener;
+
+  protected ArrayList<ValueAnimator> valueAnimators = new ArrayList<ValueAnimator>();
 
   public LoaderView() {
     this.desiredWidth = 150;
@@ -57,4 +62,14 @@ public abstract class LoaderView {
       invalidateListener = null;
     }
   }
+
+  public void removeUpdateListener() {
+    for(ValueAnimator va: valueAnimators) {
+      va.setRepeatCount(0);
+      va.end();
+      va.cancel();
+      va.removeAllUpdateListeners();
+    }
+  }
+
 }

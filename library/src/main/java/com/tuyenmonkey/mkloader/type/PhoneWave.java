@@ -36,6 +36,8 @@ public class PhoneWave extends LoaderView {
   }
 
   @Override public void setUpAnimation() {
+    if(arcs == null) return;
+    removeUpdateListener();
     for (int i = 0; i < numberOfArc; i++) {
       final int index = i;
 
@@ -53,6 +55,7 @@ public class PhoneWave extends LoaderView {
       });
 
       fadeAnimator.start();
+      valueAnimators.add(fadeAnimator);
     }
   }
 
@@ -61,4 +64,6 @@ public class PhoneWave extends LoaderView {
       arcs[i].draw(canvas);
     }
   }
+
+
 }

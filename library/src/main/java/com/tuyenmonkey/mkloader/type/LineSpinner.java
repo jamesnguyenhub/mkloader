@@ -33,6 +33,8 @@ public class LineSpinner extends LoaderView {
   }
 
   @Override public void setUpAnimation() {
+    if(lines == null) return;
+    removeUpdateListener();
     for (int i = 0; i < numberOfLine; i++) {
       final int index = i;
 
@@ -50,6 +52,7 @@ public class LineSpinner extends LoaderView {
       });
 
       fadeAnimator.start();
+      valueAnimators.add(fadeAnimator);
     }
   }
 
@@ -61,4 +64,6 @@ public class LineSpinner extends LoaderView {
       canvas.restore();
     }
   }
+
+
 }

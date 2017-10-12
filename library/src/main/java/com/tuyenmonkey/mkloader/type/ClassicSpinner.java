@@ -2,7 +2,11 @@ package com.tuyenmonkey.mkloader.type;
 
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;
+import android.util.Log;
+
 import com.tuyenmonkey.mkloader.model.Circle;
+
+import java.util.ArrayList;
 
 /**
  * Created by Tuyen Nguyen on 2/10/17.
@@ -11,6 +15,7 @@ import com.tuyenmonkey.mkloader.model.Circle;
 public class ClassicSpinner extends LoaderView {
   private Circle[] circles;
   private int circlesSize;
+
 
   public ClassicSpinner() {
     circlesSize = 8;
@@ -31,6 +36,9 @@ public class ClassicSpinner extends LoaderView {
   }
 
   @Override public void setUpAnimation() {
+    if(circles == null) return;
+    removeUpdateListener();
+
     for (int i = 0; i < circlesSize; i++) {
       final int index = i;
 
@@ -48,8 +56,10 @@ public class ClassicSpinner extends LoaderView {
       });
 
       fadeAnimator.start();
+      valueAnimators.add(fadeAnimator);
     }
   }
+
 
   @Override public void draw(Canvas canvas) {
     for (int i = 0; i < circlesSize; i++) {
@@ -59,4 +69,5 @@ public class ClassicSpinner extends LoaderView {
       canvas.restore();
     }
   }
+
 }
